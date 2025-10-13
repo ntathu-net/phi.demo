@@ -6,9 +6,7 @@ const viewsDir = path.join(__dirname, 'views');
 const distDir = path.join(__dirname, 'dist');
 
 // Set EJS views directory
-ejs.fileLoader = (filePath) => {
-    return fs.readFileSync(path.join(viewsDir, filePath), 'utf8');
-};
+ejs.root = viewsDir;
 
 // Ensure dist directory exists
 if (!fs.existsSync(distDir)) {
@@ -27,11 +25,15 @@ const files = ['index', 'about'];
 files.forEach(file => {
     const ejsPath = path.join(viewsDir, `${file}.ejs`);
 
-    const template = fs.readFileSync(ejsPath, 'utf8');
-    const html = ejs.render(template, { title: file === 'index' ? 'Home' : 'About' });
+    ejs.renderFile(ejsPath, { title: file === 'index' ? 'Home' : 'About' }, (err, html) => {
+        if (err) {
+            console.error(err);
+            return;
+        }
 
-    const htmlPath = path.join(distDir, `${file}.html`);
-    fs.writeFileSync(htmlPath, html);
+        const htmlPath = path.join(distDir, `${file}.html`);
+        fs.writeFileSync(htmlPath, html);
+    });
 });
 
 console.log('Build complete');
