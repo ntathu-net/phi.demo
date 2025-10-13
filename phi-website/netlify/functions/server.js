@@ -23,7 +23,7 @@ app.get('/about', (req, res) => {
 });
 
 // Catch all other routes
-app.get('*', (req, res) => {
+app.use((req, res) => {
     res.render('index', { title: 'Home' });
 });
 
