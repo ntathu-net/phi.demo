@@ -7,10 +7,10 @@ const port = process.env.PORT || 3000;
 
 // Set EJS as the view engine
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, '../views'));
+app.set('views', path.join(__dirname, '../../dist/views'));
 
 // Serve static files
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '../../dist/public')));
 
 // Route for home page using EJS
 app.get('/', (req, res) => {
@@ -20,6 +20,11 @@ app.get('/', (req, res) => {
 // Example route for another page
 app.get('/about', (req, res) => {
     res.render('about', { title: 'About' });
+});
+
+// Catch all other routes
+app.get('*', (req, res) => {
+    res.render('index', { title: 'Home' });
 });
 
 module.exports = app;
