@@ -4,9 +4,9 @@
   command = "npm run build"
 
 [functions]
-  directory = "netlify/functions"
+  # No functions needed for static site
 
 [[redirects]]
   from = "/*"
-  to = "/.netlify/functions/server"
+  to = "/index.html"
   status = 200
