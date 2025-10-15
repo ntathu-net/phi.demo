@@ -20,6 +20,31 @@ app.get('/about', (req, res) => {
     res.render('about', { title: 'About' });
 });
 
+// Additional route for /about.html to render the same about page
+app.get('/about.html', (req, res) => {
+    res.render('about', { title: 'About' });
+});
+
+// Route for mission page
+app.get('/mission', (req, res) => {
+    res.render('mission', { title: 'Mission' });
+});
+
+// Additional route for /mission.html
+app.get('/mission.html', (req, res) => {
+    res.render('mission', { title: 'Mission' });
+});
+
+// Route for contact page
+app.get('/contact', (req, res) => {
+    res.render('contact', { title: 'Contact' });
+});
+
+// Additional route for /contact.html
+app.get('/contact.html', (req, res) => {
+    res.render('contact', { title: 'Contact' });
+});
+
 app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
 });
