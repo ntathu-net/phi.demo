@@ -3,8 +3,9 @@
   publish = "dist"
   command = "npm run build"
 
-[functions.server]
-include = ["public/**"]
+[[functions]]
+  name = "server"
+  include = ["public/**"]
 
 [[redirects]]
   from = "/*"
