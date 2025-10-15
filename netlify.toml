@@ -3,9 +3,8 @@
   publish = "dist"
   command = "npm run build"
 
-[[functions]]
-  name = "server"
-  include = ["public/**"]
+[functions]
+  directory = "netlify/functions"
 
 [[redirects]]
   from = "/*"
