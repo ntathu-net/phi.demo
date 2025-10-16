@@ -9,62 +9,118 @@
 <body>
     <%- include('partials/header') %>
     <section class="text-gray-600 body-font">
-        <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
-            <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-                <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Our Mission</h1>
-                <p class="mb-8 leading-relaxed">PHI's mission is to advance peace, stability, and human development across Africa by empowering communities affected by conflict, poverty, and social fragmentation. We believe that peace and progress are inseparable.</p>
-            </div>
-            <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-                <img class="object-cover object-center rounded" alt="mission" src="https://cdn.pixabay.com/photo/2012/04/25/00/03/dove-41260_1280.png">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="flex flex-col text-center w-full">
+                <h2 class="text-xs text-blue-500 tracking-widest font-medium title-font mb-1">PEACE HUMANITARIAN INITIATIVE</h2>
+                <h1 class="sm:text-4xl text-3xl font-medium title-font mb-4 text-gray-900">Our Mission & Vision for Africa</h1>
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-lg">PHI is dedicated to fostering sustainable peace and development across African communities through innovative solutions, strategic partnerships, and grassroots empowerment.</p>
             </div>
         </div>
     </section>
     <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto">
-            <div class="flex flex-col text-center w-full mb-20">
-                <h2 class="text-xs text-blue-500 tracking-widest font-medium title-font mb-1">PHI'S MISSION</h2>
-                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Building Peace, Empowering Communities</h1>
-                <p class="lg:w-2/3 mx-auto leading-relaxed text-base">PHI focuses on three main pillars: Peacebuilding and Conflict Resolution, Humanitarian Relief and Recovery, and Social and Economic Development. Through partnerships and community-driven projects, PHI addresses root causes of instability and promotes long-term resilience.</p>
+            <!-- Tabs Navigation -->
+            <div class="flex flex-wrap justify-center mb-12">
+                <button onclick="showTab('vision')" class="tab-btn active-tab sm:px-6 py-3 w-1/2 sm:w-auto border-b-2 title-font font-medium inline-flex items-center justify-center sm:justify-start border-blue-500 text-blue-500">
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5 mr-3" viewBox="0 0 24 24">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>OUR VISION
+                </button>
+                <button onclick="showTab('mission')" class="tab-btn sm:px-6 py-3 w-1/2 sm:w-auto border-b-2 title-font font-medium inline-flex items-center justify-center sm:justify-start border-gray-200 text-gray-500 hover:text-gray-900">
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5 mr-3" viewBox="0 0 24 24">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                    </svg>OUR MISSION
+                </button>
+                <button onclick="showTab('approach')" class="tab-btn sm:px-6 py-3 w-1/2 sm:w-auto border-b-2 title-font font-medium inline-flex items-center justify-center sm:justify-start border-gray-200 text-gray-500 hover:text-gray-900">
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5 mr-3" viewBox="0 0 24 24">
+                        <circle cx="12" cy="5" r="3"></circle>
+                        <path d="M12 22V8M5 12H2a10 10 0 0020 0h-3"></path>
+                    </svg>OUR APPROACH
+                </button>
+                <button onclick="showTab('impact')" class="tab-btn sm:px-6 py-3 w-1/2 sm:w-auto border-b-2 title-font font-medium inline-flex items-center justify-center sm:justify-start border-gray-200 text-gray-500 hover:text-gray-900">
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5 mr-3" viewBox="0 0 24 24">
+                        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>OUR IMPACT
+                </button>
             </div>
-            <div class="flex flex-wrap">
-                <div class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
-                    <h2 class="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">Peacebuilding and Conflict Resolution</h2>
-                    <p class="leading-relaxed text-base mb-4">Promoting dialogue, reconciliation, and community cohesion through local peace committees, leadership training, and cultural understanding initiatives.</p>
-                    <a class="text-blue-500 inline-flex items-center">Learn More
-                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                            <path d="M5 12h14M12 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
+
+            <!-- Tab Content -->
+            <div id="tab-content" class="text-center">
+                <!-- Vision Tab (default active) -->
+                <div id="vision" class="tab-pane active">
+                    <div class="h-48 flex items-center justify-center mb-10">
+                        <img class="max-h-full max-w-full object-contain" alt="PHI Vision" src="/peace-dove-hero.png">
+                    </div>
+                    <h1 class="text-2xl font-medium title-font mb-4 text-gray-900">Our Vision for Africa</h1>
+                    <p class="lg:w-2/3 mx-auto leading-relaxed text-base">We envision a peaceful and prosperous Africa where communities thrive in harmony, empowered to shape their own future through sustainable development and mutual understanding.</p>
                 </div>
-                <div class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
-                    <h2 class="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">Humanitarian Relief and Recovery</h2>
-                    <p class="leading-relaxed text-base mb-4">Delivering targeted assistance to vulnerable groups, including food security, shelter, education, and psychosocial support for displaced or disadvantaged populations.</p>
-                    <a class="text-blue-500 inline-flex items-center">Learn More
-                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                            <path d="M5 12h14M12 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
+
+                <!-- Mission Tab (hidden by default) -->
+                <div id="mission" class="tab-pane hidden">
+                    <div class="h-48 flex items-center justify-center mb-10">
+                        <img class="max-h-full max-w-full object-contain" alt="PHI Mission" src="/phi-logo.png">
+                    </div>
+                    <h1 class="text-2xl font-medium title-font mb-4 text-gray-900">Our Mission</h1>
+                    <p class="lg:w-2/3 mx-auto leading-relaxed text-base">To foster sustainable peace and development across African communities through innovative solutions, strategic partnerships, and grassroots empowerment.</p>
                 </div>
-                <div class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
-                    <h2 class="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">Social and Economic Development</h2>
-                    <p class="leading-relaxed text-base mb-4">Supporting long-term resilience through education programs, youth empowerment, vocational training, and sustainable livelihoods projects.</p>
-                    <a class="text-blue-500 inline-flex items-center">Learn More
-                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                            <path d="M5 12h14M12 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
+
+                <!-- Approach Tab (hidden by default) -->
+                <div id="approach" class="tab-pane hidden">
+                    <div class="h-48 flex items-center justify-center mb-10">
+                        <img class="max-h-full max-w-full object-cover" alt="PHI Approach" src="/projects/peace-education.jpg">
+                    </div>
+                    <h1 class="text-2xl font-medium title-font mb-4 text-gray-900">Our Approach</h1>
+                    <p class="lg:w-2/3 mx-auto leading-relaxed text-base">We combine local knowledge with global best practices, working hand-in-hand with communities to develop sustainable solutions to their most pressing challenges.</p>
                 </div>
-                <div class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
-                    <h2 class="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">Community Partnerships</h2>
-                    <p class="leading-relaxed text-base mb-4">PHI partners with local authorities, regional bodies, and international organizations to implement community-driven projects.</p>
-                    <a class="text-blue-500 inline-flex items-center">Learn More
-                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                            <path d="M5 12h14M12 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
+
+                <!-- Impact Tab (hidden by default) -->
+                <div id="impact" class="tab-pane hidden">
+                    <div class="h-48 flex items-center justify-center mb-10">
+                        <img class="max-h-full max-w-full object-contain" alt="PHI Impact" src="/20251013_1025_PHI Peaceful Emblem.png">
+                    </div>
+                    <h1 class="text-2xl font-medium title-font mb-4 text-gray-900">Our Impact</h1>
+                    <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Through our programs, we've empowered thousands of individuals, fostered community resilience, and contributed to lasting peace in regions affected by conflict.</p>
                 </div>
             </div>
         </div>
+
+        <script>
+            function showTab(tabId) {
+                // Hide all tab content
+                document.querySelectorAll('.tab-pane').forEach(pane => {
+                    pane.classList.add('hidden');
+                });
+                
+                // Remove active class from all buttons
+                document.querySelectorAll('.tab-btn').forEach(btn => {
+                    btn.classList.remove('active-tab', 'text-blue-500', 'border-blue-500');
+                    btn.classList.add('text-gray-500', 'border-gray-200');
+                });
+                
+                // Show selected tab content
+                document.getElementById(tabId).classList.remove('hidden');
+                
+                // Add active class to clicked button
+                event.currentTarget.classList.add('active-tab', 'text-blue-500', 'border-blue-500');
+                event.currentTarget.classList.remove('text-gray-500', 'border-gray-200');
+            }
+        </script>
+        
+        <style>
+            .tab-btn {
+                transition: all 0.3s ease;
+                outline: none;
+            }
+            .tab-btn:hover {
+                color: #1a365d;
+                border-color: #cbd5e0;
+            }
+            .active-tab {
+                background-color: #f7fafc;
+                font-weight: 600;
+            }
+        </style>
     </section>
     <%- include('partials/footer') %>
 </body>
