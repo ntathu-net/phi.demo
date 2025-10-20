@@ -45,6 +45,26 @@ app.get('/contact.html', (req, res) => {
     res.render('contact', { title: 'Contact' });
 });
 
+// Route for strategy page
+app.get('/strategy', (req, res) => {
+    res.render('strategy', { title: 'Strategy' });
+});
+
+// Additional route for /strategy.html
+app.get('/strategy.html', (req, res) => {
+    res.render('strategy', { title: 'Strategy' });
+});
+
+// Route for initiatives page
+app.get('/initiatives', (req, res) => {
+    res.render('initiatives', { title: 'Strategic Initiatives' });
+});
+
+// Additional route for /initiatives.html
+app.get('/initiatives.html', (req, res) => {
+    res.render('initiatives', { title: 'Strategic Initiatives' });
+});
+
 app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
 });

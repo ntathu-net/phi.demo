@@ -20,12 +20,12 @@ if (fs.existsSync(publicDir)) {
 }
 
 // Render EJS files to HTML
-const files = ['index', 'about', 'mission', 'contact'];
+const files = ['index', 'about', 'mission', 'contact', 'strategy', 'initiatives'];
 
 files.forEach(file => {
     const ejsPath = path.join(viewsDir, `${file}.ejs`);
 
-    ejs.renderFile(ejsPath, { title: file === 'index' ? 'Home' : (file === 'about' ? 'About' : (file === 'mission' ? 'Mission' : 'Contact')) }, (err, html) => {
+    ejs.renderFile(ejsPath, { title: file === 'index' ? 'Home' : (file === 'about' ? 'About' : (file === 'mission' ? 'Mission' : (file === 'contact' ? 'Contact' : (file === 'strategy' ? 'Strategy' : 'Strategic Initiatives')))) }, (err, html) => {
         if (err) {
             console.error(err);
             return;

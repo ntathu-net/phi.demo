@@ -6,82 +6,236 @@
     <title><%= title %></title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-white">
     <%- include('partials/header') %>
+    
+    <!-- Page Header -->
     <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto">
             <div class="flex flex-col text-center w-full">
-                <h2 class="text-xs text-blue-500 tracking-widest font-medium title-font mb-1">PEACE HUMANITARIAN INITIATIVE</h2>
-                <h1 class="sm:text-4xl text-3xl font-medium title-font mb-4 text-gray-900">Our Mission & Vision for Africa</h1>
-                <p class="lg:w-2/3 mx-auto leading-relaxed text-lg">PHI is dedicated to fostering sustainable peace and development across African communities through innovative solutions, strategic partnerships, and grassroots empowerment.</p>
+                <h2 class="text-xs text-blue-500 tracking-widest font-medium title-font mb-1">PEACE HUMANITARIAN INITIATIVE TRUST</h2>
+                <h1 class="sm:text-4xl text-3xl font-medium title-font mb-4 text-gray-900">Our Purpose & Principles</h1>
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-base italic text-gray-700 mb-4">"Peace is not a luxury—it's a necessity and humanity is not a choice—it's our shared identity."</p>
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Discover our vision for a better world, our mission to make it happen, the values that guide us, and how we align with global goals.</p>
             </div>
         </div>
     </section>
 
-    <section class="text-gray-600 body-font">
-        <div class="container px-5 py-24 mx-auto">
+    <!-- Tabs Section -->
+    <section class="text-gray-600 body-font bg-gray-50">
+        <div class="container px-5 py-12 mx-auto">
             <!-- Tabs Navigation -->
-            <div class="flex flex-wrap justify-center mb-12">
-                <button onclick="showTab('vision')" class="tab-btn active-tab sm:px-6 py-3 w-1/2 sm:w-auto border-b-2 title-font font-medium inline-flex items-center justify-center sm:justify-start border-blue-500 text-blue-500">
+            <div class="flex flex-wrap justify-center mb-12 border-b border-gray-200">
+                <button onclick="showTab('vision')" class="tab-btn active-tab sm:px-6 py-3 w-1/2 sm:w-auto border-b-2 title-font font-medium inline-flex items-center justify-center sm:justify-start border-blue-500 text-blue-500 bg-white">
                     <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5 mr-3" viewBox="0 0 24 24">
                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                     </svg>OUR VISION
                 </button>
-                <button onclick="showTab('mission')" class="tab-btn sm:px-6 py-3 w-1/2 sm:w-auto border-b-2 title-font font-medium inline-flex items-center justify-center sm:justify-start border-gray-200 text-gray-500 hover:text-gray-900">
+                <button onclick="showTab('mission')" class="tab-btn sm:px-6 py-3 w-1/2 sm:w-auto border-b-2 title-font font-medium inline-flex items-center justify-center sm:justify-start border-transparent text-gray-500 hover:text-gray-900">
                     <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5 mr-3" viewBox="0 0 24 24">
                         <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
                     </svg>OUR MISSION
                 </button>
-                <button onclick="showTab('approach')" class="tab-btn sm:px-6 py-3 w-1/2 sm:w-auto border-b-2 title-font font-medium inline-flex items-center justify-center sm:justify-start border-gray-200 text-gray-500 hover:text-gray-900">
+                <button onclick="showTab('values')" class="tab-btn sm:px-6 py-3 w-1/2 sm:w-auto border-b-2 title-font font-medium inline-flex items-center justify-center sm:justify-start border-transparent text-gray-500 hover:text-gray-900">
                     <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5 mr-3" viewBox="0 0 24 24">
                         <circle cx="12" cy="5" r="3"></circle>
                         <path d="M12 22V8M5 12H2a10 10 0 0020 0h-3"></path>
-                    </svg>OUR APPROACH
+                    </svg>OUR VALUES
                 </button>
-                <button onclick="showTab('impact')" class="tab-btn sm:px-6 py-3 w-1/2 sm:w-auto border-b-2 title-font font-medium inline-flex items-center justify-center sm:justify-start border-gray-200 text-gray-500 hover:text-gray-900">
+                <button onclick="showTab('sdgs')" class="tab-btn sm:px-6 py-3 w-1/2 sm:w-auto border-b-2 title-font font-medium inline-flex items-center justify-center sm:justify-start border-transparent text-gray-500 hover:text-gray-900">
                     <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5 mr-3" viewBox="0 0 24 24">
-                        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-                        <circle cx="12" cy="7" r="4"></circle>
-                    </svg>OUR IMPACT
+                        <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                    </svg>GLOBAL GOALS
                 </button>
             </div>
 
             <!-- Tab Content -->
-            <div id="tab-content" class="text-center">
+            <div id="tab-content">
                 <!-- Vision Tab (default active) -->
-                <div id="vision" class="tab-pane active">
-                    <div class="h-48 flex items-center justify-center mb-10">
-                        <img class="max-h-full max-w-full object-contain" alt="PHI Vision" src="/peace-dove-hero.png">
+                <div id="vision" class="tab-pane">
+                    <div class="container mx-auto flex px-5 py-12 items-center justify-center flex-col">
+                        <img class="lg:w-2/3 md:w-4/5 w-full mb-10 object-cover object-center rounded" alt="The World We Envision" src="https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=1200&h=400&fit=crop">
+                        <div class="text-center lg:w-2/3 w-full">
+                            <h1 class="title-font sm:text-3xl text-2xl mb-4 font-medium text-gray-900">The World We Envision</h1>
+                            <p class="mb-8 leading-relaxed text-lg">"To foster a world where peace, dignity, human rights and social justice are upheld for all global citizens regardless of race, gender, nationality, or socioeconomic status."</p>
+                        </div>
                     </div>
-                    <h1 class="text-2xl font-medium title-font mb-4 text-gray-900">Our Vision for Africa</h1>
-                    <p class="lg:w-2/3 mx-auto leading-relaxed text-base">We envision a peaceful and prosperous Africa where communities thrive in harmony, empowered to shape their own future through sustainable development and mutual understanding.</p>
                 </div>
 
-                <!-- Mission Tab (hidden by default) -->
+                <!-- Mission Tab -->
                 <div id="mission" class="tab-pane hidden">
-                    <div class="h-48 flex items-center justify-center mb-10">
-                        <img class="max-h-full max-w-full object-contain" alt="PHI Mission" src="/phi-logo.png">
+                    <div class="container mx-auto flex px-5 py-12 md:flex-row flex-col items-center">
+                        <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+                            <img class="object-cover object-center rounded" alt="How We Make It Happen" src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=500&h=600&fit=crop">
+                        </div>
+                        <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+                            <h1 class="title-font sm:text-3xl text-2xl mb-4 font-medium text-gray-900">How We Make It Happen</h1>
+                            <p class="mb-8 leading-relaxed">Peace and Humanitarian Initiative Trust (PHI) is dedicated to promoting sustainable peace, advancing human rights, and delivering life-saving humanitarian aid to vulnerable communities across the globe. We work to empower individuals and strengthen institutions through advocacy, education, and direct action.</p>
+                            <div class="flex justify-center">
+                                <a href="/initiatives.html" class="inline-flex text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg">See Our Mission in Action</a>
+                            </div>
+                        </div>
                     </div>
-                    <h1 class="text-2xl font-medium title-font mb-4 text-gray-900">Our Mission</h1>
-                    <p class="lg:w-2/3 mx-auto leading-relaxed text-base">To foster sustainable peace and development across African communities through innovative solutions, strategic partnerships, and grassroots empowerment.</p>
                 </div>
 
-                <!-- Approach Tab (hidden by default) -->
-                <div id="approach" class="tab-pane hidden">
-                    <div class="h-48 flex items-center justify-center mb-10">
-                        <img class="max-h-full max-w-full object-cover" alt="PHI Approach" src="/projects/peace-education.jpg">
+                <!-- Values Tab -->
+                <div id="values" class="tab-pane hidden">
+                    <div class="container px-5 py-12 mx-auto">
+                        <div class="text-center mb-12">
+                            <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">The Values That Guide Us</h1>
+                            <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">In every decision we make and every action we take, we are guided by an unwavering commitment to our core principles.</p>
+                        </div>
+                        <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
+                            <div class="p-2 sm:w-1/2 w-full">
+                                <div class="bg-white rounded flex p-4 h-full items-center border border-gray-200">
+                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-blue-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                                        <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                                        <path d="M22 4L12 14.01l-3-3"></path>
+                                    </svg>
+                                    <span class="title-font font-medium">Honesty - Operating with truthfulness and sincerity</span>
+                                </div>
+                            </div>
+                            <div class="p-2 sm:w-1/2 w-full">
+                                <div class="bg-white rounded flex p-4 h-full items-center border border-gray-200">
+                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-blue-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                                        <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                                        <path d="M22 4L12 14.01l-3-3"></path>
+                                    </svg>
+                                    <span class="title-font font-medium">Integrity - Adhering to the highest moral and ethical principles</span>
+                                </div>
+                            </div>
+                            <div class="p-2 sm:w-1/2 w-full">
+                                <div class="bg-white rounded flex p-4 h-full items-center border border-gray-200">
+                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-blue-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                                        <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                                        <path d="M22 4L12 14.01l-3-3"></path>
+                                    </svg>
+                                    <span class="title-font font-medium">Accountability - Taking responsibility for our actions and outcomes</span>
+                                </div>
+                            </div>
+                            <div class="p-2 sm:w-1/2 w-full">
+                                <div class="bg-white rounded flex p-4 h-full items-center border border-gray-200">
+                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-blue-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                                        <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                                        <path d="M22 4L12 14.01l-3-3"></path>
+                                    </svg>
+                                    <span class="title-font font-medium">Fairness - Ensuring impartial and just treatment for all</span>
+                                </div>
+                            </div>
+                            <div class="p-2 sm:w-1/2 w-full">
+                                <div class="bg-white rounded flex p-4 h-full items-center border border-gray-200">
+                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-blue-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                                        <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                                        <path d="M22 4L12 14.01l-3-3"></path>
+                                    </svg>
+                                    <span class="title-font font-medium">Justice - Upholding rights and ensuring equity</span>
+                                </div>
+                            </div>
+                            <div class="p-2 sm:w-1/2 w-full">
+                                <div class="bg-white rounded flex p-4 h-full items-center border border-gray-200">
+                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-blue-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                                        <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                                        <path d="M22 4L12 14.01l-3-3"></path>
+                                    </svg>
+                                    <span class="title-font font-medium">Transparency - Building trust through openness</span>
+                                </div>
+                            </div>
+                            <div class="p-2 sm:w-1/2 w-full">
+                                <div class="bg-white rounded flex p-4 h-full items-center border border-gray-200">
+                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-blue-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                                        <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                                        <path d="M22 4L12 14.01l-3-3"></path>
+                                    </svg>
+                                    <span class="title-font font-medium">Ubuntu - Recognizing our shared humanity and interconnectedness</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <h1 class="text-2xl font-medium title-font mb-4 text-gray-900">Our Approach</h1>
-                    <p class="lg:w-2/3 mx-auto leading-relaxed text-base">We combine local knowledge with global best practices, working hand-in-hand with communities to develop sustainable solutions to their most pressing challenges.</p>
                 </div>
 
-                <!-- Impact Tab (hidden by default) -->
-                <div id="impact" class="tab-pane hidden">
-                    <div class="h-48 flex items-center justify-center mb-10">
-                        <img class="max-h-full max-w-full object-contain" alt="PHI Impact" src="/20251013_1025_PHI Peaceful Emblem.png">
+                <!-- SDGs Tab -->
+                <div id="sdgs" class="tab-pane hidden">
+                    <div class="container px-5 py-12 mx-auto">
+                        <div class="flex flex-col text-center w-full mb-12">
+                            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Contributing to a Global Vision</h1>
+                            <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Our work is strategically aligned with the United Nations Sustainable Development Goals (SDGs), ensuring our local impact contributes to a broader global effort for a sustainable and equitable future.</p>
+                        </div>
+                        
+                        <div class="flex flex-wrap -m-4 text-center">
+                            <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+                                <div class="border-2 border-gray-200 px-4 py-6 rounded-lg bg-white">
+                                    <div class="w-16 h-16 inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-500 mb-5 mx-auto">
+                                        <span class="text-xl font-bold">1</span>
+                                    </div>
+                                    <h2 class="title-font font-medium text-base text-gray-900">No Poverty</h2>
+                                    <p class="leading-relaxed text-sm">End poverty in all its forms</p>
+                                </div>
+                            </div>
+                            <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+                                <div class="border-2 border-gray-200 px-4 py-6 rounded-lg bg-white">
+                                    <div class="w-16 h-16 inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-500 mb-5 mx-auto">
+                                        <span class="text-xl font-bold">2</span>
+                                    </div>
+                                    <h2 class="title-font font-medium text-base text-gray-900">Zero Hunger</h2>
+                                    <p class="leading-relaxed text-sm">End hunger, achieve food security</p>
+                                </div>
+                            </div>
+                            <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+                                <div class="border-2 border-gray-200 px-4 py-6 rounded-lg bg-white">
+                                    <div class="w-16 h-16 inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-500 mb-5 mx-auto">
+                                        <span class="text-xl font-bold">3</span>
+                                    </div>
+                                    <h2 class="title-font font-medium text-base text-gray-900">Good Health</h2>
+                                    <p class="leading-relaxed text-sm">Ensure healthy lives and well-being</p>
+                                </div>
+                            </div>
+                            <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+                                <div class="border-2 border-gray-200 px-4 py-6 rounded-lg bg-white">
+                                    <div class="w-16 h-16 inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-500 mb-5 mx-auto">
+                                        <span class="text-xl font-bold">4</span>
+                                    </div>
+                                    <h2 class="title-font font-medium text-base text-gray-900">Quality Education</h2>
+                                    <p class="leading-relaxed text-sm">Ensure inclusive and equitable education</p>
+                                </div>
+                            </div>
+                            <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+                                <div class="border-2 border-gray-200 px-4 py-6 rounded-lg bg-white">
+                                    <div class="w-16 h-16 inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-500 mb-5 mx-auto">
+                                        <span class="text-xl font-bold">5</span>
+                                    </div>
+                                    <h2 class="title-font font-medium text-base text-gray-900">Gender Equality</h2>
+                                    <p class="leading-relaxed text-sm">Achieve gender equality and empower all</p>
+                                </div>
+                            </div>
+                            <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+                                <div class="border-2 border-gray-200 px-4 py-6 rounded-lg bg-white">
+                                    <div class="w-16 h-16 inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-500 mb-5 mx-auto">
+                                        <span class="text-xl font-bold">6</span>
+                                    </div>
+                                    <h2 class="title-font font-medium text-base text-gray-900">Clean Water</h2>
+                                    <p class="leading-relaxed text-sm">Ensure availability of water and sanitation</p>
+                                </div>
+                            </div>
+                            <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+                                <div class="border-2 border-gray-200 px-4 py-6 rounded-lg bg-white">
+                                    <div class="w-16 h-16 inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-500 mb-5 mx-auto">
+                                        <span class="text-xl font-bold">13</span>
+                                    </div>
+                                    <h2 class="title-font font-medium text-base text-gray-900">Climate Action</h2>
+                                    <p class="leading-relaxed text-sm">Take urgent action on climate change</p>
+                                </div>
+                            </div>
+                            <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+                                <div class="border-2 border-gray-200 px-4 py-6 rounded-lg bg-white">
+                                    <div class="w-16 h-16 inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-500 mb-5 mx-auto">
+                                        <span class="text-xl font-bold">16</span>
+                                    </div>
+                                    <h2 class="title-font font-medium text-base text-gray-900">Peace & Justice</h2>
+                                    <p class="leading-relaxed text-sm">Promote peaceful and inclusive societies</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <h1 class="text-2xl font-medium title-font mb-4 text-gray-900">Our Impact</h1>
-                    <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Through our programs, we've empowered thousands of individuals, fostered community resilience, and contributed to lasting peace in regions affected by conflict.</p>
                 </div>
             </div>
         </div>
@@ -95,16 +249,16 @@
                 
                 // Remove active class from all buttons
                 document.querySelectorAll('.tab-btn').forEach(btn => {
-                    btn.classList.remove('active-tab', 'text-blue-500', 'border-blue-500');
-                    btn.classList.add('text-gray-500', 'border-gray-200');
+                    btn.classList.remove('active-tab', 'text-blue-500', 'border-blue-500', 'bg-white');
+                    btn.classList.add('text-gray-500', 'border-transparent');
                 });
                 
                 // Show selected tab content
                 document.getElementById(tabId).classList.remove('hidden');
                 
                 // Add active class to clicked button
-                event.currentTarget.classList.add('active-tab', 'text-blue-500', 'border-blue-500');
-                event.currentTarget.classList.remove('text-gray-500', 'border-gray-200');
+                event.currentTarget.classList.add('active-tab', 'text-blue-500', 'border-blue-500', 'bg-white');
+                event.currentTarget.classList.remove('text-gray-500', 'border-transparent');
             }
         </script>
         
@@ -115,200 +269,26 @@
             }
             .tab-btn:hover {
                 color: #1a365d;
-                border-color: #cbd5e0;
             }
             .active-tab {
-                background-color: #f7fafc;
                 font-weight: 600;
             }
         </style>
     </section>
 
-    <!-- New Hero Section -->
-    <section class="bg-gray-50">
-        <div class="container px-5 py-24 mx-auto">
-            <div class="flex flex-col text-center w-full">
-                <h2 class="text-xs text-blue-500 tracking-widest font-medium title-font mb-1">PEACE HUMANITARIAN INITIATIVE</h2>
-                <h1 class="sm:text-4xl text-3xl font-medium title-font mb-4 text-gray-900">Our Strategy</h1>
-                <p class="lg:w-2/3 mx-auto leading-relaxed text-lg">PHI is dedicated to fostering sustainable peace and development across African communities through innovative solutions, strategic partnerships, and grassroots empowerment.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="text-gray-600 body-font">
-      <div class="container px-5 py-24 mx-auto flex flex-wrap">
-        <div class="flex flex-wrap w-full">
-          <div class="lg:w-2/5 md:w-1/2 md:pr-10 md:py-6">
-            <div class="flex relative pb-12">
-              <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
-                <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
-              </div>
-              <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-500 inline-flex items-center justify-center text-white relative z-10">
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                </svg>
-              </div>
-              <div class="flex-grow pl-4">
-                <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">ASSESSMENT</h2>
-                <p class="leading-relaxed">We begin by conducting thorough needs assessments in target communities to identify key challenges and opportunities for sustainable peacebuilding and development.</p>
-              </div>
-            </div>
-            <div class="flex relative pb-12">
-              <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
-                <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
-              </div>
-              <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-500 inline-flex items-center justify-center text-white relative z-10">
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                </svg>
-              </div>
-              <div class="flex-grow pl-4">
-                <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">PLANNING</h2>
-                <p class="leading-relaxed">Our team collaborates with local stakeholders to develop customized intervention strategies that address the specific needs of each community.</p>
-              </div>
-            </div>
-            <div class="flex relative pb-12">
-              <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
-                <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
-              </div>
-              <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-500 inline-flex items-center justify-center text-white relative z-10">
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                  <circle cx="12" cy="5" r="3"></circle>
-                  <path d="M12 22V8M5 12H2a10 10 0 0020 0h-3"></path>
-                </svg>
-              </div>
-              <div class="flex-grow pl-4">
-                <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">IMPLEMENTATION</h2>
-                <p class="leading-relaxed">We deploy targeted programs focused on education, economic empowerment, and conflict resolution, working hand-in-hand with community members.</p>
-              </div>
-            </div>
-            <div class="flex relative pb-12">
-              <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
-                <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
-              </div>
-              <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-500 inline-flex items-center justify-center text-white relative z-10">
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                  <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-                  <circle cx="12" cy="7" r="4"></circle>
-                </svg>
-              </div>
-              <div class="flex-grow pl-4">
-                <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">EMPOWERMENT</h2>
-                <p class="leading-relaxed">We train and equip local leaders to continue and expand our initiatives, ensuring long-term sustainability and community ownership.</p>
-              </div>
-            </div>
-            <div class="flex relative">
-              <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-500 inline-flex items-center justify-center text-white relative z-10">
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                  <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
-                  <path d="M22 4L12 14.01l-3-3"></path>
-                </svg>
-              </div>
-              <div class="flex-grow pl-4">
-                <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">IMPACT</h2>
-                <p class="leading-relaxed">Through continuous monitoring and evaluation, we measure our success by the tangible improvements in community well-being and peace indicators.</p>
-              </div>
-            </div>
-          </div>
-          <img class="lg:w-3/5 md:w-1/2 object-cover object-center rounded-lg md:mt-0 mt-12" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.zimlive.com%2Fwp-content%2Fuploads%2F2019%2F03%2Fcyclone-idai-soldiers-food-1.jpg&f=1&nofb=1&ipt=54083ce02144c210d377b7abb2863854cc1226cadbe027200552e58b08d79cc0" alt="Community Support Initiative">
-        </div>
-      </div>
-    </section>
-
-    <section class="text-gray-600 body-font">
-      <div class="container px-5 py-24 mx-auto">
-        <div class="flex flex-col text-center w-full mb-20">
-          <h2 class="text-xs text-blue-500 tracking-widest font-medium title-font mb-1">STRATEGIC PARTNERSHIPS</h2>
-          <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900">Collaborating for Greater Impact</h1>
-        </div>
-        <div class="flex flex-wrap -m-4">
-          <div class="p-4 md:w-1/3">
-            <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
-              <div class="flex items-center mb-3">
-                <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-blue-500 text-white flex-shrink-0">
-                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                  </svg>
-                </div>
-                <h2 class="text-gray-900 text-lg title-font font-medium">Community Development</h2>
-              </div>
-              <div class="flex-grow">
-                <p class="leading-relaxed text-base">Partnering with local organizations to implement sustainable community development programs that address root causes of conflict and poverty.</p>
-                <a class="mt-3 text-blue-500 inline-flex items-center">Learn More
-                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                    <path d="M5 12h14M12 5l7 7-7 7"></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="p-4 md:w-1/3">
-            <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
-              <div class="flex items-center mb-3">
-                <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-blue-500 text-white flex-shrink-0">
-                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-                    <circle cx="12" cy="7" r="4"></circle>
-                  </svg>
-                </div>
-                <h2 class="text-gray-900 text-lg title-font font-medium">Capacity Building</h2>
-              </div>
-              <div class="flex-grow">
-                <p class="leading-relaxed text-base">Empowering local leaders and organizations through training, resources, and knowledge sharing to create lasting change in their communities.</p>
-                <a class="mt-3 text-blue-500 inline-flex items-center">Learn More
-                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                    <path d="M5 12h14M12 5l7 7-7 7"></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="p-4 md:w-1/3">
-            <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
-              <div class="flex items-center mb-3">
-                <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-blue-500 text-white flex-shrink-0">
-                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                    <circle cx="6" cy="6" r="3"></circle>
-                    <circle cx="6" cy="18" r="3"></circle>
-                    <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
-                  </svg>
-                </div>
-                <h2 class="text-gray-900 text-lg title-font font-medium">Global Network</h2>
-              </div>
-              <div class="flex-grow">
-                <p class="leading-relaxed text-base">Connecting local initiatives with global resources and expertise to amplify impact and foster international cooperation for peace.</p>
-                <a class="mt-3 text-blue-500 inline-flex items-center">Learn More
-                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                    <path d="M5 12h14M12 5l7 7-7 7"></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
+    <!-- Call to Action -->
+    <section class="text-gray-600 body-font bg-blue-500">
+      <div class="container px-5 py-24 mx-auto text-center">
+        <div class="flex flex-col w-full">
+          <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">Join Us in Our Mission</h1>
+          <p class="lg:w-2/3 mx-auto leading-relaxed text-base text-white mb-8">Together, we can build a more peaceful, just, and sustainable world. Partner with us to turn our shared vision into reality.</p>
+          <div class="flex justify-center">
+            <a href="/contact" class="inline-flex text-blue-600 bg-white border-0 py-2 px-8 focus:outline-none hover:bg-gray-100 rounded text-lg">Get Involved</a>
           </div>
         </div>
       </div>
     </section>
-
-    <section class="text-gray-600 body-font bg-gray-50">
-        <div class="container px-5 py-24 mx-auto">
-            <div class="flex flex-col text-center w-full mb-12">
-                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Stay Connected With PHI</h1>
-                <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Subscribe to our newsletter for the latest updates on our projects, success stories, and how you can get involved in making a difference.</p>
-            </div>
-            <form class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end">
-                <div class="relative flex-grow w-full">
-                    <label for="full-name" class="leading-7 text-sm text-gray-600">Full Name</label>
-                    <input type="text" id="full-name" name="full-name" required class="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:bg-transparent focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                </div>
-                <div class="relative flex-grow w-full">
-                    <label for="email" class="leading-7 text-sm text-gray-600">Email Address</label>
-                    <input type="email" id="email" name="email" required class="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:bg-transparent focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                </div>
-                <button type="submit" class="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg font-medium">Subscribe</button>
-            </form>
-        </div>
-    </section>
-
+    
     <%- include('partials/footer') %>
 </body>
 </html>
