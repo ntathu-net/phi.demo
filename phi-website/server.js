@@ -65,6 +65,16 @@ app.get('/initiatives.html', (req, res) => {
     res.render('initiatives', { title: 'Strategic Initiatives' });
 });
 
+// Route for donation page
+app.get('/donate', (req, res) => {
+    res.render('donate', { title: 'Donate' });
+});
+
+// Additional route for /donate.html
+app.get('/donate.html', (req, res) => {
+    res.render('donate', { title: 'Donate' });
+});
+
 app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
 });

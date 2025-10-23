@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body class="bg-gray-50">
+    <%- include('partials/header') %>
+    
+    <!-- Hero Section -->
+    <section class="text-gray-600 body-font bg-gradient-to-r from-blue-500 to-blue-600">
+        <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
+            <div class="text-center lg:w-2/3 w-full">
+                <h1 class="title-font sm:text-5xl text-3xl mb-4 font-medium text-white">Support Our Mission</h1>
+                <p class="leading-relaxed text-xl text-blue-100 mb-8">Your donation helps us build a more peaceful and just world.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Options -->
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-12 mx-auto">
+            <div class="flex flex-col text-center w-full mb-12">
+                <h2 class="text-xs text-blue-500 tracking-widest font-medium title-font mb-1">MAKE A DIFFERENCE</h2>
+                <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900">Ways to Give</h1>
+            </div>
+            
+            <div class="flex flex-wrap -m-4">
+                <!-- One-time Donation -->
+                <div class="p-4 md:w-1/3">
+                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden bg-white">
+                        <div class="p-6">
+                            <h2 class="text-2xl font-medium text-gray-900 mb-3">One-Time Gift</h2>
+                            <p class="leading-relaxed mb-3">Make a single donation to support our immediate humanitarian efforts.</p>
+                            <div class="flex items-center flex-wrap">
+                                <button onclick="showDonationForm('one-time')" class="text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg">Donate Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Monthly Support -->
+                <div class="p-4 md:w-1/3">
+                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden bg-white">
+                        <div class="p-6">
+                            <h2 class="text-2xl font-medium text-gray-900 mb-3">Monthly Support</h2>
+                            <p class="leading-relaxed mb-3">Become a monthly donor and provide sustained help to communities in need.</p>
+                            <div class="flex items-center flex-wrap">
+                                <button onclick="showDonationForm('monthly')" class="text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg">Give Monthly</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Other Ways to Give -->
+                <div class="p-4 md:w-1/3">
+                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden bg-white">
+                        <div class="p-6">
+                            <h2 class="text-2xl font-medium text-gray-900 mb-3">Other Ways</h2>
+                            <p class="leading-relaxed mb-3">Corporate partnerships, planned giving, or donate in honor of someone.</p>
+                            <div class="flex items-center flex-wrap">
+                                <button onclick="showContactForm()" class="text-white bg-gray-500 border-0 py-2 px-6 focus:outline-none hover:bg-gray-600 rounded text-lg">Contact Us</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bank Transfer Information -->
+    <section class="text-gray-600 body-font bg-gray-50">
+        <div class="container px-5 py-12 mx-auto">
+            <div class="lg:w-2/3 mx-auto">
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <h2 class="text-2xl font-medium text-gray-900 mb-6">Bank Transfer Instructions</h2>
+                    <p class="mb-6">Thank you for your interest in supporting our mission. Currently, we accept donations through direct bank transfer. Please use the following details to make your contribution:</p>
+                    
+                    <div class="bg-blue-50 p-6 rounded-lg mb-6">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <h3 class="font-medium text-gray-900 mb-2">Bank Name:</h3>
+                                <p class="text-gray-700">[Your Bank Name]</p>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-gray-900 mb-2">Account Name:</h3>
+                                <p class="text-gray-700">Peace Humanitarian Initiative Trust</p>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-gray-900 mb-2">Account Number:</h3>
+                                <p class="text-gray-700">[Your Account Number]</p>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-gray-900 mb-2">SWIFT/BIC:</h3>
+                                <p class="text-gray-700">[Your SWIFT/BIC Code]</p>
+                            </div>
+                            <div class="md:col-span-2">
+                                <h3 class="font-medium text-gray-900 mb-2">Bank Address:</h3>
+                                <p class="text-gray-700">[Bank Street Address]<br>[City, State, ZIP Code]<br>[Country]</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Important:</strong> Please include your full name and "PHI Donation" in the transfer reference.
+                                    For tax receipt, email a copy of your transfer confirmation to <a href="mailto:donations@phi.org" class="text-blue-600 hover:text-blue-800">donations@phi.org</a>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-100 border-l-4 border-blue-500 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-sm font-medium text-blue-800">Online Donations Coming Soon!</h3>
+                                <div class="mt-2 text-sm text-blue-700">
+                                    <p>We're working on adding secure online payment options. In the meantime, we appreciate your support through bank transfers.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bank Transfer Section (moved up) -->
+    <section id="bank-transfer-section" class="text-gray-600 body-font">
+        <div class="container px-5 py-12 mx-auto">
+            <div class="flex flex-col text-center w-full mb-12">
+                <h2 class="text-xs text-blue-500 tracking-widest font-medium title-font mb-1">HOW TO DONATE</h2>
+                <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900">Bank Transfer Instructions</h1>
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-base mt-4">Currently, we accept donations through direct bank transfer. Online donations will be available soon.</p>
+            </div>
+            
+            <div class="lg:w-4/5 mx-auto">
+                <div class="bg-white rounded-lg shadow-md p-8">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900 mb-4">Bank Details</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <span class="text-blue-500 mr-2">•</span>
+                                    <span><strong>Bank Name:</strong> [Your Bank Name]</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-blue-500 mr-2">•</span>
+                                    <span><strong>Account Name:</strong> Peace Humanitarian Initiative Trust</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-blue-500 mr-2">•</span>
+                                    <span><strong>Account Number:</strong> [Your Account Number]</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-blue-500 mr-2">•</span>
+                                    <span><strong>SWIFT/BIC:</strong> [Your SWIFT/BIC Code]</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-blue-500 mr-2">•</span>
+                                    <span><strong>Bank Address:</strong> [Bank Street Address, City, Country]</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="border-l border-gray-200 pl-8">
+                            <h3 class="text-lg font-medium text-gray-900 mb-4">Important Notes</h3>
+                            <ul class="space-y-3 text-sm text-gray-600">
+                                <li class="flex items-start">
+                                    <span class="text-blue-500 mr-2">•</span>
+                                    <span>Please include <strong>"PHI Donation"</strong> in the transfer reference</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-blue-500 mr-2">•</span>
+                                    <span>For tax receipts, email your transfer confirmation to <a href="mailto:donations@phi.org" class="text-blue-600 hover:underline">donations@phi.org</a></span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-blue-500 mr-2">•</span>
+                                    <span>International transfers may incur bank fees</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-blue-500 mr-2">•</span>
+                                    <span>Processing may take 2-5 business days</span>
+                                </li>
+                            </ul>
+                            
+                            <div class="mt-8 p-4 bg-blue-50 rounded-lg">
+                                <h4 class="font-medium text-blue-800 mb-2">Need Help?</h4>
+                                <p class="text-sm text-blue-700">Contact our donations team at <a href="mailto:donations@phi.org" class="font-medium hover:underline">donations@phi.org</a> or call <a href="tel:+1234567890" class="font-medium hover:underline">+1 (234) 567-890</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12 bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    <strong>Note:</strong> Online donations will be available soon. We appreciate your patience and support through bank transfers in the meantime.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-12 mx-auto">
+            <div class="flex flex-col text-center w-full mb-12">
+                <h2 class="text-xs text-blue-500 tracking-widest font-medium title-font mb-1">YOUR IMPACT</h2>
+                <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900">How Your Donation Helps</h1>
+            </div>
+            
+            <div class="flex flex-wrap -m-4 text-center">
+                <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+                    <div class="border-2 border-gray-200 px-4 py-6 rounded-lg">
+                        <div class="w-16 h-16 inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-500 mb-5 mx-auto">
+                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-8 h-8" viewBox="0 0 24 24">
+                                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"></path>
+                            </svg>
+                        </div>
+                        <h2 class="title-font font-medium text-xl text-gray-900">Community</h2>
+                        <p class="leading-relaxed">Support local communities in need</p>
+                    </div>
+                </div>
+                
+                <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+                    <div class="border-2 border-gray-200 px-4 py-6 rounded-lg">
+                        <div class="w-16 h-16 inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-500 mb-5 mx-auto">
+                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-8 h-8" viewBox="0 0 24 24">
+                                <path d="M3 3h18v18H3z"></path>
+                                <path d="M7 7h10M7 12h10M7 17h6"></path>
+                            </svg>
+                        </div>
+                        <h2 class="title-font font-medium text-xl text-gray-900">Education</h2>
+                        <p class="leading-relaxed">Fund educational programs</p>
+                    </div>
+                </div>
+                
+                <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+                    <div class="border-2 border-gray-200 px-4 py-6 rounded-lg">
+                        <div class="w-16 h-16 inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-500 mb-5 mx-auto">
+                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-8 h-8" viewBox="0 0 24 24">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                            </svg>
+                        </div>
+                        <h2 class="title-font font-medium text-xl text-gray-900">Healthcare</h2>
+                        <p class="leading-relaxed">Provide medical assistance</p>
+                    </div>
+                </div>
+                
+                <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+                    <div class="border-2 border-gray-200 px-4 py-6 rounded-lg">
+                        <div class="w-16 h-16 inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-500 mb-5 mx-auto">
+                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-8 h-8" viewBox="0 0 24 24">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
+                        <h2 class="title-font font-medium text-xl text-gray-900">Protection</h2>
+                        <p class="leading-relaxed">Ensure safety and security</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="text-gray-600 body-font bg-gray-50">
+        <div class="container px-5 py-12 mx-auto">
+            <div class="flex flex-col text-center w-full mb-12">
+                <h2 class="text-xs text-blue-500 tracking-widest font-medium title-font mb-1">HAVE QUESTIONS?</h2>
+                <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900">Frequently Asked Questions</h1>
+            </div>
+            
+            <div class="lg:w-4/5 mx-auto">
+                <div class="flex flex-wrap -m-4">
+                    <div class="p-4 md:w-1/2 w-full">
+                        <div class="h-full bg-white p-6 rounded-lg">
+                            <h3 class="text-lg text-gray-900 font-medium title-font mb-3">Is my donation secure?</h3>
+                            <p class="leading-relaxed text-base">Yes, all donations are processed through our secure payment processor using industry-standard encryption.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 md:w-1/2 w-full">
+                        <div class="h-full bg-white p-6 rounded-lg">
+                            <h3 class="text-lg text-gray-900 font-medium title-font mb-3">Is my donation tax-deductible?</h3>
+                            <p class="leading-relaxed text-base">Yes, PHI is a registered 501(c)(3) organization. All donations are tax-deductible to the extent allowed by law.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 md:w-1/2 w-full">
+                        <div class="h-full bg-white p-6 rounded-lg">
+                            <h3 class="text-lg text-gray-900 font-medium title-font mb-3">Can I make a recurring donation?</h3>
+                            <p class="leading-relaxed text-base">Yes, you can choose to make a one-time or monthly recurring donation during the checkout process.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="p-4 md:w-1/2 w-full">
+                        <div class="h-full bg-white p-6 rounded-lg">
+                            <h3 class="text-lg text-gray-900 font-medium title-font mb-3">How can I update my donation information?</h3>
+                            <p class="leading-relaxed text-base">Please contact our donor services team at donations@phi.org or call (555) 123-4567 to update your information.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="text-gray-600 body-font bg-blue-500">
+        <div class="container px-5 py-12 mx-auto text-center">
+            <h1 class="text-3xl font-medium title-font text-white mb-4">Ready to Make an Impact?</h1>
+            <p class="lg:w-2/3 mx-auto leading-relaxed text-white text-xl mb-8">Join us in creating lasting change around the world.</p>
+            <button onclick="scrollToTop()" class="inline-flex text-blue-600 bg-white border-0 py-3 px-8 focus:outline-none hover:bg-gray-100 rounded-full text-lg font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200">
+                Donate Now
+            </button>
+        </div>
+    </section>
+
+    <script>
+        // Show bank transfer information when a donation button is clicked
+        function showDonationForm(type) {
+            const transferSection = document.getElementById('bank-transfer-section');
+            if (transferSection) {
+                window.scrollTo({
+                    top: transferSection.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            }
+        }
+        
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Show contact form
+        function showContactForm() {
+            window.location.href = '/contact';
+        }
+    </script>
+    
+    <%- include('partials/footer') %>
+</body>
+</html>
